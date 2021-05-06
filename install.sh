@@ -20,10 +20,11 @@ brew tap homebrew/bundle
 brew bundle
 
 # Set default MySQL root password and auth type.
-mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
+#mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
+# 20210506 using brew install --cask dbngin instead
 
 # Install PHP extensions with PECL
-pecl install imagick memcached redis swoole
+pecl install imagick
 
 # Install global Composer packages
 /usr/local/bin/composer global require laravel/installer laravel/valet beyondcode/expose
@@ -36,8 +37,9 @@ $HOME/.composer/vendor/bin/valet install
 mkdir $HOME/Sites
 
 # Create sites subdirectories
-mkdir $HOME/Sites/blade-ui-kit
-mkdir $HOME/Sites/laravel
+mkdir $HOME/Sites/schlaufux
+mkdir $HOME/Sites/fhnw
+mkdir $HOME/Sites/personal
 
 # Clone Github repositories
 ./clone.sh
