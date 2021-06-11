@@ -83,6 +83,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Load all of your custom configurations from dotifles-private/
+for config_file ($ZSH_CUSTOM/dotfiles-private/*.zsh(N)); do
+  source $config_file
+done
+unset config_file
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
