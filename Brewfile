@@ -46,7 +46,6 @@ brew 'python'
 cask '1password'
 cask '1password-cli'
 cask 'alfred'
-cask 'caffeine'
 cask 'dbngin'
 cask 'docker'
 cask 'firefox'
@@ -74,15 +73,6 @@ cask 'whatsapp'
 cask 'iterm2'
 cask 'fork'
 cask 'setapp'
-
-# Fonts
-cask 'font-lato'
-cask 'font-open-sans'
-cask 'font-roboto'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
 
 # Mac App Store
 mas 'Divvy', id: 413857545
