@@ -28,8 +28,8 @@ brew 'gifsicle'
 
 # Development
 brew 'php'
-brew 'php@7.4'
 brew 'php@8.0'
+brew 'php@8.1'
 brew 'composer'
 brew 'imagemagick'
 brew 'libmemcached'
@@ -41,6 +41,7 @@ brew 'redis'
 brew 'yarn'
 brew 'nano'
 brew 'python'
+brew 'bat'
 
 # Apps
 cask '1password'
