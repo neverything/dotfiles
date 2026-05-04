@@ -3,12 +3,12 @@
 echo "Setting up your Mac..."
 
 # Check for Oh My Zsh and install if we don't have it
-if test ! $(which omz); then
+if test ! "$(command -v omz)"; then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
 fi
 
 # Check for Homebrew and install if we don't have it
-if test ! $(which brew); then
+if test ! "$(command -v brew)"; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
@@ -16,41 +16,31 @@ fi
 brew update
 
 # Install all our dependencies with bundle (See Brewfile)
-brew tap homebrew/bundle
 brew bundle
-
-# Set default MySQL root password and auth type.
-#mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
-# 20210506 using brew install --cask dbngin instead
 
 # Install PHP extensions with PECL
 pecl install imagick
 
-# Install global Composer packages
-/usr/local/bin/composer global require laravel/installer laravel/valet beyondcode/expose
+# Create the Herd directory for PHP/Laravel projects
+mkdir -p "$HOME/Herd"
 
-# Install Laravel Valet
-$HOME/.composer/vendor/bin/valet install
+# Symlink dotfiles into $HOME (idempotent — safe to re-run)
+for file in .zshrc .gitignore_global aliases.zsh path.zsh; do
+  ln -sf "$HOME/.dotfiles/$file" "$HOME/$file"
+done
 
-# Create a Sites directory
-# This is a default directory for macOS user accounts but doesn't comes pre-installed
-mkdir $HOME/Sites
-
-# Create sites subdirectories
-mkdir $HOME/Sites/schlaufux
-mkdir $HOME/Sites/fhnw
-mkdir $HOME/Sites/personal
-
-# Clone Github repositories
-./clone.sh
-
-# Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
-rm -rf $HOME/.zshrc
-ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
-
-# Symlink the Mackup config file to the home directory
-ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
-
-# Set macOS preferences
-# We will run this last because this will reload the shell
+# Set macOS preferences (will reload the shell at the end)
 source .macos
+
+# Set custom keyboard shortcuts
+source .keyboard
+
+cat <<'EOF'
+
+Bootstrap complete. Next steps:
+  1. Launch Herd.app and run its install process
+  2. Install latest Node LTS:    fnm install --lts && fnm default lts-latest
+  3. Sign into 1Password, Raycast, GitHub, Slack
+  4. Restore app preferences manually (no more Mackup)
+
+EOF

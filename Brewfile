@@ -1,23 +1,27 @@
 # Taps
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
-tap 'homebrew/bundle'
 tap 'nicoverbruggen/homebrew-cask'
 
 # Binaries
-brew 'bash' # Latest Bash version
-brew 'coreutils' # Those that come with macOS are outdated
+brew 'bash'                # Latest Bash version
+brew 'coreutils'           # Those that come with macOS are outdated
 brew 'ffmpeg'
 brew 'gh'
 brew 'git'
 brew 'gnupg'
 brew 'grep'
-brew 'mackup'
-brew 'mas' # Mac App Store manager
-brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
-brew 'trash' # Manage the Trash bin
-brew 'zlib' # Needed for Memcached
+brew 'mas'                 # Mac App Store manager
+brew 'pkg-config'
+brew 'trash'               # Manage the Trash bin
+brew 'zlib'                # Needed for Memcached
+
+# Modern CLI replacements
+brew 'fnm'                 # Node version manager (replaces nvm)
+brew 'eza'                 # ls replacement
+brew 'zoxide'              # cd replacement (`z <dir>`)
+brew 'ripgrep'             # rg — faster grep
+brew 'fd'                  # faster find
+brew 'fzf'                 # fuzzy finder
+brew 'bat'                 # cat replacement
 
 # Spatie Medialibrary
 brew 'jpegoptim'
@@ -27,39 +31,38 @@ brew 'svgo'
 brew 'gifsicle'
 
 # Development
-brew 'php'
-brew 'php@8.0'
-brew 'php@8.1'
 brew 'composer'
 brew 'imagemagick'
 brew 'libmemcached'
 brew 'memcached'
 brew 'mysql'
 brew 'nginx'
-brew 'node'
 brew 'redis'
 brew 'yarn'
 brew 'nano'
 brew 'python'
-brew 'bat'
 
 # Apps
 cask '1password'
 cask '1password-cli'
-cask 'alfred'
 cask 'dbngin'
 cask 'docker'
 cask 'firefox'
+cask 'fork'
 cask 'github'
-cask 'google-backup-and-sync'
 cask 'google-chrome'
+cask 'google-drive'
 cask 'gpg-suite'
+cask 'herd'
 cask 'imageoptim'
+cask 'iterm2'
 cask 'phpstorm'
 cask 'ray'
+cask 'raycast'
+cask 'rectangle'
+cask 'setapp'
 cask 'signal'
 cask 'slack'
-cask 'sublime-text'
 cask 'tableplus'
 cask 'telegram-desktop'
 cask 'the-unarchiver'
@@ -67,17 +70,11 @@ cask 'tinkerwell'
 cask 'transmission'
 cask 'visual-studio-code'
 cask 'vlc'
-cask 'zoom'
-cask 'vagrant'
-cask 'virtualbox'
 cask 'whatsapp'
-cask 'iterm2'
-cask 'fork'
-cask 'setapp'
+cask 'zoom'
 
 # Mac App Store
-mas 'Divvy', id: 413857545
 mas 'Keynote', id: 409183694
 mas 'Numbers', id: 409203825
-mas 'Pages', id: 409201541
-mas 'iMovie', id: 408981434
+mas 'Pages',   id: 409201541
+mas 'iMovie',  id: 408981434

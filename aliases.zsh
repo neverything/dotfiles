@@ -1,8 +1,10 @@
 # Shortcuts
-alias copykey="pbcopy < $HOME/.ssh/id_ed.pub"
+alias copykey="pbcopy < $HOME/.ssh/id_rsa.pub"
 alias reloadshell="source $HOME/.zshrc"
 alias flushdns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias ll="ls -laF"
+alias ls="eza"
+alias ll="eza -laF --git"
+alias la="eza -a"
 alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias c="clear"
@@ -11,9 +13,7 @@ alias o="open ."
 # Directories
 alias dotfiles="cd $DOTFILES"
 alias library="cd $HOME/Library"
-alias sites="cd $HOME/Sites"
-alias fhnw="sites && cd fhnw/"
-alias schlaufux="sites && cd schlaufux/"
+alias herd="cd $HOME/Herd"
 
 # Laravel
 alias a="php artisan"
@@ -21,8 +21,6 @@ alias mfs="php artisan migrate:fresh --seed"
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
-alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"
-alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
 alias nah='git reset --hard;git clean -df'
 
 # JS
@@ -40,14 +38,13 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 
-# Docker
-alias docker-composer="docker-compose"
-
 # Git
 alias gs="git status"
 alias gb="git branch"
 alias gc="git checkout"
 alias gl="git log --oneline --decorate --color"
+alias gcm="git checkout main && git pull"
+alias gcb="git checkout -b "
 alias amend="git add . && git commit --amend --no-edit"
 alias commit="git add . && git commit -m"
 alias diff="git diff"
@@ -60,6 +57,7 @@ alias resolve="git add . && git commit --no-edit"
 alias stash="git stash -u"
 alias unstage="git restore --staged ."
 alias wip="commit wip"
+alias brewmaint="brew update && brew upgrade && brew cleanup && brew doctor"
 
 # Custom
 alias cat="bat"

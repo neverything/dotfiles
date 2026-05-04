@@ -7,14 +7,11 @@ export DOTFILES=$HOME/.dotfiles
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Enable completions
-autoload -Uz compinit && compinit
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="cloud"
+ZSH_THEME="cloudly"
 
 # Hide username in prompt
 DEFAULT_USER=`whoami`
@@ -77,9 +74,17 @@ ZSH_CUSTOM=$DOTFILES
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  composer
+  artisan
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
+
+# Enable completions
+autoload -Uz compinit && compinit
 
 # User configuration
 
@@ -123,6 +128,34 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 # And include the parameter for ZSH
 export HISTORY_IGNORE="(ls|cd|cd -|pwd|exit|date|* --help)"
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# fnm — Node version manager
+eval "$(fnm env --use-on-cd)"
+
+# zoxide — smarter `cd` (use `z <dir>`)
+eval "$(zoxide init zsh)"
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# go in path
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+# Herd will re-inject PHP version exports below this line on first run.
+
+function cmit() {
+  git add .
+  commitMessage="$*"
+  if [ -z "$commitMessage" ]; then
+    diff_input=$(git diff --cached --stat && git diff --cached | head -c 50000)
+    commitMessage=$(echo "$diff_input" | claude -p "Write a single-line commit message for this diff. Output ONLY the message, no quotes, no explanation, no markdown.")
+  fi
+  if [ -z "$commitMessage" ]; then
+    echo "Error: empty commit message"
+    return 1
+  fi
+  git commit -m "$commitMessage"
+}

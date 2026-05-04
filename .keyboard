@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Define the plist file path
+plist_file="$HOME/Library/Preferences/com.apple.symbolichotkeys.plist"
+
+# Backup the original file (skipped silently if it doesn't exist yet)
+[ -f "$plist_file" ] && cp "$plist_file" "${plist_file}.backup"
+
+# Use PlistBuddy to modify the plist file
+/usr/libexec/PlistBuddy -c "Delete :AppleSymbolicHotKeys:27" "$plist_file" 2>/dev/null
+/usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:27:enabled bool true" "$plist_file"
+/usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:27:value:parameters array" "$plist_file"
+/usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:27:value:parameters: integer 60" "$plist_file"
+/usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:27:value:parameters: integer 43" "$plist_file"
+/usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:27:value:parameters: integer 1048576" "$plist_file"
+/usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:27:value:type string standard" "$plist_file"
+
+# Refresh the preferences daemon so changes take effect immediately
+killall cfprefsd 2>/dev/null
+
+echo "Keyboard shortcut has been set."

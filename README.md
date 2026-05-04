@@ -20,7 +20,7 @@ First, go through the checklist below to make sure you didn't forget anything be
 - Did you remember to save all important documents from non-iCloud directories?
 - Did you save all of your work from apps which aren't synced through iCloud?
 - Did you remember to export important data from your local database?
-- Did you update [mackup](https://github.com/lra/mackup) to the latest version and ran `mackup backup`?
+- Did you note down preferences for any apps that don't sync through iCloud or their own cloud (you'll restore these manually now that Mackup is gone)?
 
 ### Installing macOS cleanly
 
@@ -44,8 +44,10 @@ If you did all of the above you may now follow these install instructions to set
     ```
 
 4. Run `~/.dotfiles/install.sh` to start the installation
-5. After mackup is synced with your cloud storage, restore preferences by running `mackup restore`
-6. Restart your computer to finalize the process
+5. Launch Herd.app and run its install process — your PHP/Laravel projects live in `~/Herd`
+6. Install latest Node LTS via fnm: `fnm install --lts && fnm default lts-latest`
+7. Sign into your apps (1Password, Raycast, GitHub, Slack, etc.)
+8. Restart your computer to finalize the process
 
 Your Mac is now ready to use!
 
@@ -63,12 +65,7 @@ Check out the [`Brewfile`](./Brewfile) file and adjust the apps you want to inst
 
 Check out the [`aliases.zsh`](./aliases.zsh) file and add your own aliases. If you need to tweak your `$PATH` check out the [`path.zsh`](./path.zsh) file. These files get loaded in because the `$ZSH_CUSTOM` setting points to the `.dotfiles` directory. You can adjust the [`.zshrc`](./.zshrc) file to your liking to tweak your Oh My Zsh setup. More info about how to customize Oh My Zsh can be found [here](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization).
 
-When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Your settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than iCloud, [checkout the documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage). Also make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory. 
-
-```zsh
-brew install mackup
-mackup backup
-```
+App preferences are no longer managed by Mackup (the project is unmaintained). Either let apps sync via iCloud / their own cloud, or note down settings manually before a wipe. The `install.sh` script symlinks the core dotfiles (`.zshrc`, `aliases.zsh`, `path.zsh`, `.gitignore_global`) into `$HOME` for you.
 
 You can tweak the shell theme, the Oh My Zsh settings and much more. Go through the files in this repo and tweak everything to your liking.
 
