@@ -13,7 +13,6 @@ alias o="open ."
 # Directories
 alias dotfiles="cd $DOTFILES"
 alias library="cd $HOME/Library"
-alias herd="cd $HOME/Herd"
 
 # Laravel
 alias a="php artisan"
