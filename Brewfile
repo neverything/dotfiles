@@ -1,80 +1,169 @@
-# Taps
-tap 'nicoverbruggen/homebrew-cask'
-
-# Binaries
-brew 'bash'                # Latest Bash version
-brew 'coreutils'           # Those that come with macOS are outdated
-brew 'ffmpeg'
-brew 'gh'
-brew 'git'
-brew 'gnupg'
-brew 'grep'
-brew 'mas'                 # Mac App Store manager
-brew 'pkg-config'
-brew 'trash'               # Manage the Trash bin
-brew 'zlib'                # Needed for Memcached
-
-# Modern CLI replacements
-brew 'fnm'                 # Node version manager (replaces nvm)
-brew 'eza'                 # ls replacement
-brew 'zoxide'              # cd replacement (`z <dir>`)
-brew 'ripgrep'             # rg — faster grep
-brew 'fd'                  # faster find
-brew 'fzf'                 # fuzzy finder
-brew 'bat'                 # cat replacement
-
-# Spatie Medialibrary
-brew 'jpegoptim'
-brew 'optipng'
-brew 'pngquant'
-brew 'svgo'
-brew 'gifsicle'
-
-# Development
-brew 'composer'
-brew 'imagemagick'
-brew 'libmemcached'
-brew 'memcached'
-brew 'mysql'
-brew 'nginx'
-brew 'redis'
-brew 'yarn'
-brew 'nano'
-brew 'python'
-
-# Apps
-cask '1password'
-cask '1password-cli'
-cask 'dbngin'
-cask 'docker'
-cask 'firefox'
-cask 'fork'
-cask 'github'
-cask 'google-chrome'
-cask 'google-drive'
-cask 'gpg-suite'
-cask 'herd'
-cask 'imageoptim'
-cask 'iterm2'
-cask 'phpstorm'
-cask 'ray'
-cask 'raycast'
-cask 'rectangle'
-cask 'setapp'
-cask 'signal'
-cask 'slack'
-cask 'tableplus'
-cask 'telegram-desktop'
-cask 'the-unarchiver'
-cask 'tinkerwell'
-cask 'transmission'
-cask 'visual-studio-code'
-cask 'vlc'
-cask 'whatsapp'
-cask 'zoom'
-
-# Mac App Store
-mas 'Keynote', id: 409183694
-mas 'Numbers', id: 409203825
-mas 'Pages',   id: 409201541
-mas 'iMovie',  id: 408981434
+tap "aarondfrancis/tap"
+tap "federico-terzi/espanso"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "keith/formulae"
+tap "nicoverbruggen/cask"
+tap "ossianhempel/tap"
+tap "oven-sh/bun"
+tap "shivammathur/extensions"
+tap "shivammathur/php"
+tap "steipete/tap"
+tap "stripe/stripe-cli"
+brew "aom"
+brew "libpng"
+brew "atuin"
+brew "bash"
+brew "bat"
+brew "node"
+brew "bower"
+brew "pcre2"
+brew "glib"
+brew "cairo"
+brew "giflib"
+brew "jpeg-xl"
+brew "libpq"
+brew "composer"
+brew "coreutils"
+brew "docker-compose"
+brew "eza"
+brew "fd"
+brew "ffmpeg"
+brew "fnm"
+brew "fzf"
+brew "gh"
+brew "gifsicle"
+brew "git"
+brew "unbound"
+brew "gnutls"
+brew "gnupg"
+brew "go"
+brew "pkgconf"
+brew "gobject-introspection"
+brew "netpbm"
+brew "pango"
+brew "librsvg"
+brew "graphviz"
+brew "grep"
+brew "guile"
+brew "libheif"
+brew "imagemagick"
+brew "jpeg"
+brew "jpegoptim"
+brew "jq"
+brew "libass"
+brew "libffi"
+brew "python@3.12"
+brew "mas"
+brew "mise"
+brew "nano"
+brew "nghttp2"
+brew "optipng"
+brew "pgloader"
+brew "pngquant"
+brew "python@3.10"
+brew "python@3.9"
+brew "rename"
+brew "ripgrep"
+brew "s3cmd"
+brew "shared-mime-info"
+brew "starship"
+brew "svgo"
+brew "tesseract"
+brew "thefuck"
+brew "tldr"
+brew "tmux"
+brew "trash", link: true
+brew "wget"
+brew "wp-cli"
+brew "yarn"
+brew "zizmor"
+brew "zlib"
+brew "zoxide"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+brew "aarondfrancis/tap/counselors"
+brew "keith/formulae/reminders-cli"
+brew "ossianhempel/tap/things3-cli"
+brew "oven-sh/bun/bun"
+brew "shivammathur/extensions/phpredis@8.3"
+brew "stripe/stripe-cli/stripe"
+cask "1password-cli"
+cask "alfred"
+cask "anaconda"
+cask "basictex"
+cask "deepl"
+cask "dropbox"
+cask "font-caskaydia-cove-nerd-font"
+cask "font-fira-code-nerd-font"
+cask "font-iosevka-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-lato"
+cask "font-monaspace"
+cask "fork"
+cask "ghostty"
+cask "google-backup-and-sync"
+cask "google-chrome"
+cask "gpg-suite"
+cask "imageoptim"
+cask "phpstorm"
+cask "ray"
+cask "reminders-menubar"
+cask "setapp"
+cask "signal"
+cask "slack"
+cask "spotify"
+cask "sublime-text"
+cask "telegram-desktop"
+cask "the-unarchiver"
+cask "tinkerwell"
+cask "visual-studio-code"
+cask "vlc"
+cask "whatsapp"
+mas "1Password for Safari", id: 1569813296
+mas "Actions For Obsidian", id: 1659667937
+mas "Bear", id: 1091189122
+mas "Developer", id: 640199958
+mas "Hidden Bar", id: 1452453066
+mas "iA Writer", id: 775737590
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Kindle", id: 302584613
+mas "Kindle Classic", id: 405399194
+mas "Lunatask", id: 1583719331
+mas "NordVPN", id: 905953485
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Pixelmator Pro", id: 1289583905
+mas "Reeder", id: 6475002485
+mas "Shortery", id: 1594183810
+mas "Tailscale", id: 1475387142
+mas "Things", id: 904280696
+mas "VVTerm", id: 6757482822
+mas "WhatsApp", id: 310633997
+mas "Xcode", id: 497799835
+vscode "astro-build.astro-vscode"
+vscode "carolinanymark.wordpress-block-markup"
+vscode "eamodio.gitlens"
+vscode "ediamin.wp-block-theme-companion"
+vscode "github.copilot-chat"
+vscode "golang.go"
+vscode "johnbillion.vscode-wordpress-hooks"
+vscode "laravel.vscode-laravel"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-python.debugpy"
+vscode "ms-python.isort"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+go "golang.org/x/tools/gopls"
+go "github.com/eljakani/ward"

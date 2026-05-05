@@ -1,0 +1,9 @@
+[user]
+	name = neverything
+	email = neverything@gmail.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[core]
+	excludesfile = /Users/neverything/.gitignore_global

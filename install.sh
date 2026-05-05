@@ -25,9 +25,19 @@ pecl install imagick
 mkdir -p "$HOME/Herd"
 
 # Symlink dotfiles into $HOME (idempotent — safe to re-run)
-for file in .zshrc .gitignore_global aliases.zsh path.zsh; do
+for file in .zshrc .gitconfig .gitignore_global aliases.zsh path.zsh; do
   ln -sf "$HOME/.dotfiles/$file" "$HOME/$file"
 done
+
+# Symlink app configs that live outside $HOME
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+ln -sf "$HOME/.dotfiles/ghostty.config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+
+mkdir -p "$HOME/Library/Application Support/Code/User"
+ln -sf "$HOME/.dotfiles/vscode-settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+
+mkdir -p "$HOME/.ssh"
+ln -sf "$HOME/.dotfiles/ssh.config" "$HOME/.ssh/config"
 
 # Set macOS preferences (will reload the shell at the end)
 source .macos
